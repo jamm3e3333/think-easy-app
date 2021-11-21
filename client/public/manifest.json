@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Sentence App",
+  "name": "Sentence generator",
   "icons": [
     {
       "src": "favicon.ico",
