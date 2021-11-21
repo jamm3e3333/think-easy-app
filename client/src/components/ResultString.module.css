@@ -1,0 +1,18 @@
+.result-string--card {
+    padding-top: 10rem;
+    width: 80%;
+    max-width: 95%;
+}
+
+.result-string--button {
+    margin-top: 20rem;
+}
+
+@media (max-width: 600px) {
+    .result-string--card {
+        width: 90%;
+    }
+    .result-string--button {
+        margin-top: 5rem;
+    }
+}

@@ -1,23 +1,36 @@
 .card{
-    padding: 4rem 3rem;
-    box-shadow: 0 2rem 2rem rgba(0,0,0,0.25);
+    padding: 5rem 3rem;
     border-radius: 1rem;
     animation: moveUp 1s ease-out;
-    margin: 6rem auto;
+    margin: 3rem auto;
     width: 70rem;
     max-width: 95%;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    .card{
+.card:hover {
+    box-shadow: 0 2rem 2rem rgba(0,0,0,0.25);
+}
+
+@media (max-width: 900px) {
+    .card {
+        padding: .5rem 3rem;
         width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card:hover {
+        box-shadow: none;
     }
 }
 
 @keyframes moveUp {
     0% {
         opacity: 0;
-        transform: translateY(-10rem);
+        transform: translateY(10rem);
     }
     100% {
         opacity: 1;

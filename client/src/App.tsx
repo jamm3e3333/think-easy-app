@@ -3,16 +3,19 @@ import { useLocation, Routes, Route, Navigate } from 'react-router-dom';
 import { store } from './state'
 import { Provider } from 'react-redux';
 import { SentencePaths } from './routes/config';
+
 import Navigator from './components/Navigator';
 import ResultSentence from './components/ResultSentence';
 import ResultString from './components/ResultString';
 import SentenceItem from './components/SentenceItem';
+import Header from './components/Header';
 
 function App() {
   const location = useLocation();
 
   return (
     <Provider store={store}>
+      <Header />
       <Routes>
       <Route 
             path='/' 

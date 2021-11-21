@@ -1,0 +1,7 @@
+.header-welcome {
+    text-align: center;
+    background: rgba(24, 217, 175, 1);
+    color: rgba(50, 50, 50, 1);
+    font-weight: 700;
+    padding: 2rem 0 3rem 0;
+}

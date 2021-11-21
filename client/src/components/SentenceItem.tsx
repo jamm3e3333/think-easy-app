@@ -1,15 +1,20 @@
-import React, { useRef, FormEvent } from 'react';
+import React, { useRef, FormEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import useInputValidation from '../hooks/use-input-validation';
 import { ActionType } from '../state/action-types/index';
 import { useTypedSelector } from '../hooks/use-typed-selector';
+
+import Button from './UI/Button';
 import Card from './UI/Card';
+import classes from './SentenceItem.module.css';
 
 interface SentenceItemProps {
     path: string;
 }
 
 const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
+    const [deleteIsVisible, setDeleteIsVisible] = useState(false);
     const dispatch = useDispatch();
     const sentenceInputRef = useRef<HTMLInputElement>(null);
     const sentences = useTypedSelector(state => state.sentence);
@@ -17,11 +22,17 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
     const {
         value,
         isValid,
-        hasError,
         valueChangeHandler: sentenceItemChangeHandler,
-        valueBlurHandler: sentenceItemBlurHandler,
         reset,
     } = useInputValidation(value => value.trim() !== '');
+
+
+    useEffect(() => {
+        const temp: boolean = sentences[path] !== '';
+        if(!temp) setDeleteIsVisible(false);
+        else setDeleteIsVisible(true);
+
+    }, [sentences, path]);
 
     function submitSentenceItem(e: FormEvent<HTMLFormElement>){
         e.preventDefault();
@@ -45,21 +56,31 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
         })
     }
 
+
     return (
-        <Card>
+        <Card className={classes['sentence-item--card']}>
             <form onSubmit={submitSentenceItem}>
-                <label>{path}?</label>
+                <h2 className={classes['sentence-item--path']}>{path}?</h2>
                 <input 
+                    className={classes['sentence-item--input']}
                     onChange={sentenceItemChangeHandler}
-                    onBlur={sentenceItemBlurHandler}
                     ref={sentenceInputRef}
                     value={value}
                     type="text"
                     maxLength={100}
                 />
-                <button type="submit">Add Option</button>
-                <button onClick={deleteOptionHandler}>Delete Option</button>
-                {sentences[path] && <p>{sentences[path]}</p>}
+                <Button 
+                    type="submit"
+                    title={deleteIsVisible ? 'Change Option' : 'Add Option'}
+                    disabled={!isValid}
+                />
+                {deleteIsVisible && 
+                <Button 
+                    type='button'
+                    title={'Delete Option'} 
+                    onClick={deleteOptionHandler} 
+                />}
+                {sentences[path] && <><p className={classes['sentence-item--option']}>your option:</p><p>{sentences[path]}</p></>}
             </form>
         </Card>
     )

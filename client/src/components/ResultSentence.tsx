@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/use-typed-selector';
+
 import { SentencePaths } from '../routes/config';
 import { ActionType } from '../state/action-types';
+
 import Card from './UI/Card';
+import Button from './UI/Button';
 
 
 const ResultSentence = () => {
@@ -37,14 +40,19 @@ const ResultSentence = () => {
     return (
         <>
             {isComplete &&
-
                 <Card>
-                    <button onClick={showResultHandle}>Show Result Sentence</button>
+                    <Button 
+                        onClick={showResultHandle}
+                        title='Show Result Sentence'
+                        type='button'
+                    />
+                    <Button 
+                        onClick={deleteSentenceHandle}
+                        title='Delete All'
+                        type='button'
+                    />
                 </Card>
             }
-            <Card>
-                <button onClick={deleteSentenceHandle}>Delete All</button>
-            </Card>
         </>
     )
 }

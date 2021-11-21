@@ -1,0 +1,19 @@
+.button-ui {
+    background: rgba(24, 217, 175, 1);
+    outline: none;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    margin: 0 1rem;
+}
+
+.button-ui:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .button-ui {
+        margin: 1rem 1rem;
+    }
+}
