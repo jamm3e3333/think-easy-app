@@ -1,8 +1,9 @@
-import React, { useRef, FormEvent, useEffect } from 'react';
+import React, { useRef, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import useInputValidation from '../hooks/use-input-validation';
 import { ActionType } from '../state/action-types/index';
 import { useTypedSelector } from '../hooks/use-typed-selector';
+import Card from './UI/Card';
 
 interface SentenceItemProps {
     path: string;
@@ -21,10 +22,6 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
         valueBlurHandler: sentenceItemBlurHandler,
         reset,
     } = useInputValidation(value => value.trim() !== '');
-
-    useEffect(() => {
-        return () => reset();
-    })
 
     function submitSentenceItem(e: FormEvent<HTMLFormElement>){
         e.preventDefault();
@@ -49,7 +46,7 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
     }
 
     return (
-        <>
+        <Card>
             <form onSubmit={submitSentenceItem}>
                 <label>{path}?</label>
                 <input 
@@ -64,7 +61,7 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
                 <button onClick={deleteOptionHandler}>Delete Option</button>
                 {sentences[path] && <p>{sentences[path]}</p>}
             </form>
-        </>
+        </Card>
     )
 }
 

@@ -23,6 +23,9 @@ const reducer = (
                 stateToDelete[action.payload] = '';
                 return stateToDelete;
 
+            case ActionType.DELETE_ALL:
+                return initialState;
+
             default: return state;
         }
     }

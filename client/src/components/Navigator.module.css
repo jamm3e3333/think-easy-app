@@ -1,0 +1,20 @@
+.navigate {
+    width: 20rem;
+    color: rgba(24, 217, 175, 1);
+}
+
+.navigate-right {
+    position: fixed;
+    top: 20rem;
+    right: 20rem;
+}
+
+.navigate-left {
+    position: fixed;
+    top: 20rem;
+    left: 20rem;
+}
+
+.navigate:hover {
+    cursor: pointer;
+}

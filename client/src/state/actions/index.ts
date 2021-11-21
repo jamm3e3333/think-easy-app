@@ -15,6 +15,11 @@ interface DeleteOption {
     payload: string;
 }
 
+interface DeleteAll {
+    type: ActionType.DELETE_ALL;
+}
+
 export type Action = 
 | WriteOption
-| DeleteOption;
+| DeleteOption
+| DeleteAll;

@@ -1,0 +1,26 @@
+.card{
+    padding: 4rem 3rem;
+    box-shadow: 0 2rem 2rem rgba(0,0,0,0.25);
+    border-radius: 1rem;
+    animation: moveUp 1s ease-out;
+    margin: 6rem auto;
+    width: 70rem;
+    max-width: 95%;
+}
+
+@media (max-width: 600px) {
+    .card{
+        width: 90%;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
