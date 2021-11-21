@@ -1,0 +1,5 @@
+@media (max-width: 1200px) {
+    .result-sentence--card {
+        margin-top: 0;
+    }
+}

@@ -68,6 +68,7 @@ const SentenceItem: React.FC<SentenceItemProps> = ({path}) => {
                     value={value}
                     type="text"
                     maxLength={100}
+                    placeholder={`${path}...`}
                 />
                 <Button 
                     type="submit"

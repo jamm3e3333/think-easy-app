@@ -9,6 +9,7 @@ import ResultSentence from './components/ResultSentence';
 import ResultString from './components/ResultString';
 import SentenceItem from './components/SentenceItem';
 import Header from './components/Header';
+import NavigationLinks from './components/NavigationLinks';
 
 function App() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function App() {
   return (
     <Provider store={store}>
       <Header />
+      { location.pathname.replace('/','') !== 'result' && <NavigationLinks />}
       <Routes>
       <Route 
             path='/' 

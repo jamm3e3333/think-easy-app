@@ -25,3 +25,9 @@
     background: rgba(235, 64, 52, .4);
     color: rgba(235, 64, 52, 1);
 }
+
+@media (max-width: 600px) {
+    .sentence-item--card {
+        margin-bottom: 0;
+    }
+}

@@ -8,6 +8,7 @@ import { ActionType } from '../state/action-types';
 
 import Card from './UI/Card';
 import Button from './UI/Button';
+import classes from './ResultSentence.module.css';
 
 
 const ResultSentence = () => {
@@ -40,7 +41,7 @@ const ResultSentence = () => {
     return (
         <>
             {isComplete &&
-                <Card>
+                <Card className={classes['result-sentence--card']}>
                     <Button 
                         onClick={showResultHandle}
                         title='Show Result Sentence'
